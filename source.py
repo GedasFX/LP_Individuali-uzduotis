@@ -71,11 +71,26 @@ class DataMonitor:
         return False
 # ==== Methods for modifying array _data and field _count ====
 
-
+# Read the file and output it as 3d array: [W/R index][Group Index][Element Index]
+def readFile(path):
+    result = [[], []]
+    file = open(path, "r")
+    # Defines if group is writing (0) or reading (1). K = W/R index
+    for k in range(2):
+        # Iterate trough all groups for reading/writing. I = Group ID
+        for i in range(int(file.readline())):
+            result[k].append([])
+            # Iterate through all elements of a particular group. J = Element ID
+            for _ in range(int(file.readline())):
+                line = file.readline().split(' ')
+                result[k][i].append(Data(line[0], int(line[1])))
+    file.close()
+    return result
 
 # Main function
 def main():
-    print("HW")
+    rawData = readFile("IFF-6-2_MilasiusG_IP_dat_14.txt")
+    print(rawData)
 
 # Run the program
 main()
