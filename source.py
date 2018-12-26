@@ -169,10 +169,46 @@ def startProcesses(processes, rawData, qData):
     for process in processes[2]:
         process.start()
 
+# Writes to the output file once program finishes execution
+def writeFile(path, initialData, finalData):
+    f = open(path, "w")
+    lineno = 1
+
+    # === Writing initial
+    f.write("{ln:3})    Data Write  \n".format(ln = lineno)); lineno = lineno + 1
+    f.write("{ln:3}) Name      Count\n".format(ln = lineno)); lineno = lineno + 1
+    
+    f.write("{ln:3})      =====\n".format(ln = lineno)); lineno = lineno + 1
+    for group in initialData[0]: # Process count
+        for element in group: 
+            f.write("{ln:3}) {name:10}{count:5}\n".format(ln = lineno, name = element.element, count = element.count))
+            lineno = lineno + 1
+        f.write("{ln:3})      =====\n".format(ln = lineno)); lineno = lineno + 1
+    f.write("{ln:3}) ===============\n".format(ln = lineno)); lineno = lineno + 1
+
+    f.write("{ln:3})    Data Read    \n".format(ln = lineno)); lineno = lineno + 1
+    f.write("{ln:3}) Name      Count\n".format(ln = lineno)); lineno = lineno + 1
+
+    f.write("{ln:3})      =====\n".format(ln = lineno)); lineno = lineno + 1
+    for group in initialData[0]: # Process count
+        for element in group: 
+            f.write("{ln:3}) {name:10}{count:5}\n".format(ln = lineno, name = element.element, count = element.count))
+            lineno = lineno + 1
+        f.write("{ln:3})      =====\n".format(ln = lineno)); lineno = lineno + 1
+    f.write("{ln:3}) ===============\n".format(ln = lineno)); lineno = lineno + 1
+
+    # === Writing result
+    f.write("{ln:3}) Result data:\n".format(ln = lineno)); lineno = lineno + 1
+    for element in finalData: 
+        f.write("{ln:3}) {name:10}{count:5}\n".format(ln = lineno, name = element.element, count = element.count))
+        lineno = lineno + 1
+
+    f.close()
+
 # Main function
 if __name__ == "__main__":
-    rawData = readFile("IFF-6-2_MilasiusG_IP_dat_14.txt")
-    # Data transfer queues. Many2One qData
+    rawData = readFile("IFF-6-2_MilasiusG_IP_dat_3.txt")
+    # Data transfer queues. Many2One on qData
     qData = Queue()
     qResult = Queue()
     qLog = Queue()
@@ -189,3 +225,5 @@ if __name__ == "__main__":
     count = qResult.get() # First result is quantity
     for i in range(count):
         resArr.append(qResult.get())
+
+    writeFile("IFF-6-2_MilasiusG_IP_rez.txt", rawData, resArr)

@@ -1,0 +1,78 @@
+5
+8
+Dulce 17
+Evin 12
+John 3
+Marjory 9
+Mel 16
+Milissent 5
+Mireille 15
+Ransom 3
+4
+Farlee 20
+Mariel 11
+Robb 15
+Tabbitha 19
+6
+Aline 4
+Chrissy 2
+Filip 16
+Gennifer 14
+Marijo 10
+Peggy 18
+7
+Dulce 10
+Evin 18
+John 10
+Marjory 9
+Mel 14
+Mireille 18
+Ransom 14
+8
+Adelaida 19
+Antonie 8
+Bevon 4
+Callie 5
+Daveen 19
+Franny 11
+Marjorie 14
+Meta 19
+5
+8
+Dulce 16
+Evin 10
+John 3
+Marjory 9
+Mel 16
+Milissent 5
+Mireille 15
+Ransom 3
+4
+Farlee 17
+Mariel 7
+Robb 15
+Tabbitha 19
+6
+Aline 4
+Chrissy 2
+Filip 11
+Gennifer 6
+Marijo 10
+Peggy 18
+7
+Dulce 1
+Evin 8
+John 10
+Marjory 9
+Mel 14
+Mireille 18
+Ransom 14
+8
+Adelaida 8
+Antonie 8
+Bevon 4
+Callie 5
+Daveen 19
+Franny 11
+Marjorie 2
+Meta 19
